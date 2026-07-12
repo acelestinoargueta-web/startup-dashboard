@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Work Sans, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, 
+  Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #ffffff;
+  background: #12141a;
+}
+
+.app-shell {
+  min-height: 100%;
+  margin: 0 5rem;
+  padding: 50px 0;
+}
+
+.app-header h1 {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 35px;
+}
+
+.app-content {
+  min-height: 200px;
+}
+
+@media (max-width: 768px) {
+  .app-shell {
+    margin: 0 2rem;
+    padding: 20px 0;
+  }
+}
