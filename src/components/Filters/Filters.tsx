@@ -1,6 +1,8 @@
 import { Startup } from "@/types";
 import { useFilters } from "../../store/useFilters";
 import { FilterGroup } from "./FilterGroup";
+import { useFilterQueryParams } from "@/hooks/useFilterQueryParams";
+
 
 type Props = {
   data?: Startup[];
@@ -8,6 +10,7 @@ type Props = {
 };
 
 export const Filters = ({ data, loading }: Props) => {
+
   const {
     stage,
     sector,
@@ -18,7 +21,8 @@ export const Filters = ({ data, loading }: Props) => {
     resetFilters,
   } = useFilters();
 
-  // extraer opciones únicas dinámicamente
+  useFilterQueryParams();
+
   const stages = [...new Set(data?.map((s) => s.stage))];
   const countries = [...new Set(data?.map((s) => s.country))];
   const sectors = [...new Set(data?.flatMap((s) => s.sector))];
@@ -26,7 +30,6 @@ export const Filters = ({ data, loading }: Props) => {
   return (
     <div className="mb-6 space-y-10">
 
-      {/* SORT + RESET */}
       <div>
 
         <button
@@ -50,16 +53,16 @@ export const Filters = ({ data, loading }: Props) => {
               px-2
               py-1
               border
-              border-gray-300
+              border-gray-800
               focus:outline-none
-              focus:ring-2
-              focus:ring-blue-500
-              focus:border-blue-500
-            "
+              focus:ring-1
+              focus:border-white-400
+              bg-black           
+              "
           >
-            <option value="score">Conviction Score</option>
-            <option value="funding">Funding</option>
-            <option value="year">Founded Year</option>
+            <option className="text-gray-400" value="score">Conviction Score</option>
+            <option className="text-gray-400" value="funding">Funding</option>
+            <option className="text-gray-400" value="year">Founded Year</option>
           </select>
         </div>
 

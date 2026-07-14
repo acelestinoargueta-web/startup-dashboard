@@ -33,3 +33,72 @@ h3{
   gap: 16px;
   margin-top: 20px;
 }
+
+
+.startup-card {
+    width: 100%;
+    height: 180px;
+    perspective: 1000px;
+}
+
+.startup-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s ease;
+    transform-style: preserve-3d;
+}
+
+.startup-card:hover .startup-card-inner {
+    transform: rotateY(180deg);
+}
+
+.startup-card-front,
+.startup-card-back {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.startup-card-back {
+    transform: rotateY(180deg);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.signals {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.signals strong {
+    color: #8b90a0;
+}
+
+.signals::-webkit-scrollbar {
+    width: 6px;
+}
+
+.signals::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.signals::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+}
+
+.signals::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+
